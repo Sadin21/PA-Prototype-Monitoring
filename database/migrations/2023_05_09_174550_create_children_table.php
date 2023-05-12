@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('school');
             $table->string('status_with_parents');
             $table->string('photo')->nullable();
+            $table->string('regis_status');
             $table->bigInteger('coordinator_id');
             $table->bigInteger('child_parent_id');
             $table->timestamps();

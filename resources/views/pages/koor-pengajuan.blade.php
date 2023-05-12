@@ -10,9 +10,6 @@
     <a href="{{ route('koor.create_pengajuan_ortu') }}" type="button" class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-32 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
       Orang Tua
     </a>
-    <a href="{{ route('koor.create_pengajuan_anak') }}" type="button" class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-32 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-      Anak Asuh
-    </a>
   </div>
   <div>
     <div class="container w-full">
@@ -93,8 +90,13 @@
       </div>
     </div>
 
+    <div class="flex gap-4 justify-end mt-8">
+      <a href="{{ route('koor.create_pengajuan_anak') }}" type="button" class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-32 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+        Anak Asuh
+      </a>
+    </div>
     {{-- Anak Asuh --}}
-    <div class="container w-full mt-0">
+    <div class="container w-full mb-24">
       <div class="pt-2">
           <div class="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
               <div class="inline-block min-w-full overflow-hidden rounded-lg shadow">
@@ -105,7 +107,7 @@
                                   Nama
                               </th>
                               <th scope="col" class="px-5 py-3 text-sm font-normal text-left text-gray-800 bg-white border-b border-gray-200">
-                                  Sekolah
+                                  Status
                               </th>
                               <th scope="col" class="px-5 py-3 text-sm font-normal text-left text-gray-800 bg-white border-b border-gray-200">
                                   Alamat
@@ -113,6 +115,9 @@
                               <th scope="col" class="px-5 py-3 text-sm font-normal text-left text-gray-800 bg-white border-b border-gray-200">
                                   Nama Wali
                               </th>
+                              <th scope="col" class="px-5 py-3 text-sm font-normal text-left text-gray-800 bg-white border-b border-gray-200">
+                                Registrasi
+                            </th>
                               <th scope="col" class="px-5 py-3 text-sm font-normal text-left text-gray-800 bg-white border-b border-gray-200 w-20">
                                   Aksi
                             </th>
@@ -137,7 +142,7 @@
                               </td>
                               <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                    {{ $d->school }}
+                                    {{ $d->status_in_family }}
                                 </p>
                             </td>
                               <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
@@ -149,6 +154,15 @@
                                   <p class="text-gray-900 whitespace-no-wrap">
                                     {{ $d->parent_name }}
                                   </p>
+                              </td>
+                              <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                <span class="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
+                                  <span aria-hidden="true" class="absolute inset-0 {{ $d->regis_status == 'Aktif' ? 'bg-green-200' : 'bg-yellow-200'}} rounded-full opacity-50">
+                                  </span>
+                                  <span class="relative">
+                                      {{ $d->regis_status }}
+                                  </span>
+                                </span>
                               </td>
                               <td class="px-5 py-5 text-sm bg-white border-b border-gray-200 flex gap-4">
                                 <a href="{{ route('koor.edit_pengajuan_anak', $d->id) }}" type="button" class="py-2 w-14 px-2 flex justify-center items-center  bg-yellow-500 hover:bg-yellow-700 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 h-12 rounded-lg ">

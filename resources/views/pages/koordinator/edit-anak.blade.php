@@ -101,6 +101,23 @@
                 </div>
                 @enderror
             </div>
+            <h1 class="pb-4">Status</h1>
+            <div class=" relative pb-4">
+                <select
+                data-te-select-init
+                data-te-select-placeholder="Example placeholder"
+                class="rounded-lg border-1 flex-1 appearance-none border-4 border-yellow-500 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent" name="regis_status">
+                    <option value="Pengajuan" {{ $data->regis_status === 'Pengajuan' ? 'Selected' : '' }}>Pengajuan</option>
+                    <option value="Aktif" {{ $data->regis_status === 'Aktif' ? 'Selected' : '' }}>Aktif</option>
+                </select>
+                @error('tertiary_education')
+                <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
+                    <p>
+                        {{ $message }}
+                    </p>
+                </div>
+                @enderror
+            </div>
         </div>
         <div class="">
             <h1 class="pb-4">Kelas</h1>

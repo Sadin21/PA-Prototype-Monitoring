@@ -19,6 +19,7 @@ class Child extends Model
         'school',
         'status_with_parents',
         'photo',
+        'regis_status',
         'coordinator_id',
         'child_parent_id',
     ];

@@ -8,14 +8,8 @@
                             <a class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">
                                 Home
                             </a>
-                            <a class="text-gray-800 px-3 py-2 rounded-md text-sm font-normal" href="/#">
-                                Gallery
-                            </a>
-                            <a class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">
-                                Content
-                            </a>
-                            <a class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">
-                                Contact
+                            <a href="{{ route('admin.pengajuan') }}" class="text-gray-800 px-3 py-2 rounded-md text-sm font-normal" href="/#">
+                                Pengajuan Anak
                             </a>
                         </div>
                         <div class="flex items-end">

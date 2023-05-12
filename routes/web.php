@@ -28,6 +28,9 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/dashboard/administrator', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/dashboard/administrator/pengajuan', [AdminController::class, 'pengajuan'])->name('admin.pengajuan');
+    Route::get('/dashboard/administrator/detail/{id}', [AdminController::class, 'edit_pengajuan'])->name('admin.edit_pengajuan');
+    Route::post('/dashboard/administrator/detail/{id}', [AdminController::class, 'update_pengajuan'])->name('admin.update_pengajuan');
 });
 
 Route::group(['middleware' => ['auth', 'koor']], function () {

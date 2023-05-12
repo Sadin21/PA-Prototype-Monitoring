@@ -25,6 +25,7 @@ class ChildrenTableSeeder extends Seeder
                 'school' => 'TK Amanah',
                 'status_with_parents' => 'Orang Tua',
                 'photo' => 'anak.jpeg',
+                'regis_status' => 'Pengajuan',
                 'coordinator_id' => 2,
                 'child_parent_id' => 1,
             ],
@@ -39,6 +40,7 @@ class ChildrenTableSeeder extends Seeder
                 'school' => 'SD Amanah',
                 'status_with_parents' => 'Orang Tua',
                 'photo' => 'anak 2.webp',
+                'regis_status' => 'Pengajuan',
                 'coordinator_id' => 3,
                 'child_parent_id' => 2,
             ]
