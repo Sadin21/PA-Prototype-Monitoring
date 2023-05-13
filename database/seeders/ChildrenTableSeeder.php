@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use App\Models\User;
+use App\Models\Child;
 
 class ChildrenTableSeeder extends Seeder
 {
@@ -13,7 +16,7 @@ class ChildrenTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('children')->insert([
+        $children = [
             [
                 'name' => 'Ahmad Fauzi',
                 'gender' => 'Laki-laki',
@@ -44,6 +47,23 @@ class ChildrenTableSeeder extends Seeder
                 'coordinator_id' => 3,
                 'child_parent_id' => 2,
             ]
+        ];
+
+        foreach ($children as $child) {
+            // buat akun
+
+            $dataUser = User::create([
+                'name' => $child['name'],
+                'email' => strtolower(str_replace(' ', '', $child['name'])) . '@gmail.com',
+                'password' => bcrypt('123'),
+                'role_id' => 3,
+                'remember_token' => Str::random(60)
             ]);
+
+            $child['user_id'] = $dataUser->id;
+            Child::create($child);
+
+        }
+        // DB::table('children')->insert($children);
     }
 }

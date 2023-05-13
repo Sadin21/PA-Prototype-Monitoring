@@ -24,8 +24,10 @@ return new class extends Migration
             $table->string('status_with_parents');
             $table->string('photo')->nullable();
             $table->string('regis_status');
-            $table->bigInteger('coordinator_id');
-            $table->bigInteger('child_parent_id');
+            // $table->bigInteger('coordinator_id');
+            $table->foreignId('coordinator_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('child_parent_id')->constrained('child_parents');
             $table->timestamps();
         });
     }

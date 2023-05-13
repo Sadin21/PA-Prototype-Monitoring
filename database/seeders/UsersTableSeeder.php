@@ -54,7 +54,7 @@ class UsersTableSeeder extends Seeder
                 'address' => 'Jl. Sukolilo, Surabaya',
                 'photo' => 'foto 3.png',
                 'remember_token' =>Str::random(60)
-            ]
+            ],
         ]);
     }
 }

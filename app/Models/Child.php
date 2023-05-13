@@ -20,18 +20,23 @@ class Child extends Model
         'status_with_parents',
         'photo',
         'regis_status',
+        'user_id',
         'coordinator_id',
         'child_parent_id',
     ];
 
-    public function user()
+    public function account()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function child_parent()
+    public function coordinator()
     {
-        return $this->belongsTo('App\Models\child_parent');
+        return $this->belongsTo(User::class, 'coordinator_id');
     }
 
+    public function donate_report()
+    {
+        return $this->hasOne('App\Models\donate_report');
+    }
 }

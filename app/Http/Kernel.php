@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'koor' => \App\Http\Middleware\KoordinatorMiddleware::class,
+        'child' => \App\Http\Middleware\ChildMiddleware::class,
     ];
 }

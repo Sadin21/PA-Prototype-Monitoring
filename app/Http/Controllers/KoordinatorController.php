@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Child;
 use App\Models\child_parent;
+use App\Models\donate_report;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -227,5 +228,24 @@ class KoordinatorController extends Controller
         $data->delete();
 
         return redirect()->route('koor.pengajuan')->with(['success' => 'Data berhasil dihapus']);
+    }
+
+    public function laporan_donasi()
+    {
+        // $dataChild = Child::join('users', 'children.coordinator_id', '=', 'users.id')
+        // ->join('child_parents', 'children.child_parent_id', '=', 'child_parents.id')
+        // ->join('donate_reports', 'children.id', '=', 'donate_reports.child_id')
+        // ->where('children.coordinator_id')
+        // ->select('children.*', 'users.name as coordinator_name', 'child_parents.name as parent_name')
+        // ->get(); 
+        
+        $dataDonate = donate_report::join('children', 'donate_reports.child_id', '=', 'children.id')
+        ->join('users', 'children.coordinator_id', '=', 'users.id')
+        ->where('children.coordinator_id', Auth::user()->id)
+        ->select('donate_reports.*', 'children.name as child_name')
+        ->get();
+
+        // dd($dataDonate);
+        return view('pages.koordinator.keuangan', compact('dataDonate'));
     }
 }

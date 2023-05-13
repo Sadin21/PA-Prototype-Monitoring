@@ -48,12 +48,17 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo('App\Models\Role');
+        return $this->belongsTo(Role::class);
     }
 
-    public function child()
+    public function coordinatorChildren()
     {
-        return $this->hasMany('App\Models\Child');
+        return $this->hasMany(Child::class, 'coordinator_id', 'id');
+    }
+
+    public function childData()
+    {
+        return $this->hasOne(Child::class, 'child_parent_id', 'id');
     }
 
 }

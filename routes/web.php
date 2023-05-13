@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChildController;
 use App\Http\Controllers\KoordinatorController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,4 +52,12 @@ Route::group(['middleware' => ['auth', 'koor']], function () {
     Route::get('/dashboard/koordinator/pengajuan/edit-anak/{id}', [KoordinatorController::class, 'edit_pengajuan_anak'])->name('koor.edit_pengajuan_anak');
     Route::post('/dashboard/koordinator/pengajuan/edit-anak/{id}', [KoordinatorController::class, 'update_pengajuan_anak'])->name('koor.update_pengajuan_anak');
     Route::delete('/dashboard/koordinator/pengajuan/hapus-anak/{id}', [KoordinatorController::class, 'destroy_pengajuan_anak'])->name('koor.delete_pengajuan-anak');
+
+    // Laporan Donasi
+    Route::get('/dashboard/koordinator/keuangan-donasi', [KoordinatorController::class, 'laporan_donasi'])->name('koor.laporan_donasi');
 });
+
+Route::group(['middleware' => ['auth', 'child']], function() {
+    Route::get('/dashboard/child', [ChildController::class, 'index'])->name('child.index');
+});
+

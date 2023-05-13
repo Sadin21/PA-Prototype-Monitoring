@@ -5,13 +5,13 @@
                 <div class=" flex items-center md:w-full">
                     <div class="hidden md:flex md:w-full md:justify-between ">
                         <div class="flex items-baseline ml-10 space-x-4">
-                            <a href={{ route('koor.index') }} class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">
+                            <a class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">
                                 Home
                             </a>
-                            <a href="{{ route('koor.pengajuan') }}" class="text-gray-800 px-3 py-2 rounded-md text-sm font-normal" href="/#">
+                            <a class="text-gray-800 px-3 py-2 rounded-md text-sm font-normal" href="/#">
                                 Pengajuan
                             </a>
-                            <a href={{ route('koor.laporan_donasi') }} class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">
+                            <a class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">
                                 Keuangan
                             </a>
                             <a class="text-gray-800  px-3 py-2 rounded-md text-sm font-normal" href="/#">

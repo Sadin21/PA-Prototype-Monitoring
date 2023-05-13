@@ -30,6 +30,8 @@ class AuthController extends Controller
             } elseif ($user->role_id == 2) {
                 // dd('koor');
                 return redirect()->route('koor.index')->withSuccess('Login Berhasil');
+            } elseif ($user->role_id == 3) {
+                return redirect()->route('child.index')->withSuccess('Login Berhasil');
             }
 
         }
